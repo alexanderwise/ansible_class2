@@ -1,0 +1,124 @@
+# This CloudFormation template is used to launch the resources required for the
+# introduction to Ansible class.
+#
+# If you use it in your own AWS environment, you will incur charges.
+#
+# You will need the following already provisioned:
+# - SSH Keypair
+# - Route 53 Hosted Zone
+#
+# Also note, this uses the CentOS AMI from the marketplace. You will need to
+# accept the terms in the marketplace before launching this stack the first
+# time, otherwise CloudFormation will 'hang' while launching the EC2 Instances.
+# Visit https://wiki.centos.org/Cloud/AWS to accept the terms.
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Cloudformation Template for Ansible class
+Parameters:
+  Keyname:
+    Description: Keypair name for access to EC2
+    Type: AWS::EC2::KeyPair::KeyName
+    MinLength: 1
+  DomainName:
+    Description: Route 53 hosted domain name
+    Type: String
+    MinLength: 1
+  CentOSAMI:
+    Description: CentOS 7 AMI to use for instances (https://wiki.centos.org/Cloud/AWS)
+    Type: AWS::EC2::Image::Id
+    # CentOS 7 AMI for us-west-2
+    # You may have to accept the terms in the marketplace before deploying
+    Default: ami-a042f4d8
+    MinLength: 1
+Resources:
+  DatabaseSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Join ['-', ['database', !Ref "AWS::StackName"]]
+      GroupDescription: Allow inbound ssh and 3306/tcp from wordpress
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 3306
+        ToPort: 3306
+        SourceSecurityGroupName: !Ref WordpressSecurityGroup
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+      Tags:
+      - Key: Name
+        Value: !Join ['-', ['database', !Ref "AWS::StackName"]]
+  DatabaseInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !Ref CentOSAMI
+      BlockDeviceMappings:
+      - DeviceName: /dev/sda1
+        Ebs:
+          VolumeType: gp2
+          DeleteOnTermination: True
+          VolumeSize: 8
+      SecurityGroupIds:
+      - !Ref DatabaseSecurityGroup
+      Tags:
+      - Key: Name
+        Value: !Join ['-', ['database', !Ref "AWS::StackName"]]
+  DatabaseEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref DatabaseInstance
+  DatabaseDNS:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: !Ref DomainName
+      Name: !Join ['', ['db-', !Ref "AWS::StackName", '.', !Ref DomainName]]
+      Type: A
+      TTL: 60
+      ResourceRecords:
+      - !Ref DatabaseEIP
+  WordpressSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
+      GroupDescription: Allow inbound http & ssh for wordpress
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+      Tags:
+      - Key: Name
+        Value: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
+  WordpressInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !Ref CentOSAMI
+      BlockDeviceMappings:
+      - DeviceName: /dev/sda1
+        Ebs:
+          VolumeType: gp2
+          DeleteOnTermination: True
+          VolumeSize: 8
+      SecurityGroupIds:
+      - !Ref WordpressSecurityGroup
+      Tags:
+      - Key: Name
+        Value: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
+  WordpressEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref WordpressInstance
+  WordpressDNS:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: !Ref DomainName
+      Name: !Join ['', ['www-', !Ref "AWS::StackName", '.', !Ref DomainName]]
+      Type: A
+      TTL: 60
+      ResourceRecords:
+      - !Ref WordpressEIP
