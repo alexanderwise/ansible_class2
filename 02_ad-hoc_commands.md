@@ -106,7 +106,7 @@ Notes:
 ## Copy
 
 Create a text file on your computer containing whatever you want, and copy it
-to `/opt` on your webserver.
+to `/opt` on your webserver using the `ansible` command.
 
 Notes:
 * You will need to instruct ansible to run commands with sudo (`-b`)
