@@ -63,7 +63,7 @@ Download pride and prejudice to a group of servers using the
 #                     |     +- get_url module
 #                     |     |             +- Arguments for the get_url module                  server to act on -+
 #                     |     |             |                                                                      |
-ansible -i inventory -k -m get_url -a 'url=http://www.gutenberg.org/files/1342/1342-0.txt dest=/tmp/pride.txt' server01
+ansible -i inventory -k -m get_url -a 'url=http://www.gutenberg.org/files/1342/1342-0.txt dest=/opt/pride.txt' server01
 server01 | SUCCESS => {
     "changed": true,
     "checksum_dest": null,
