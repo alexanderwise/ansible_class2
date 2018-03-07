@@ -30,6 +30,10 @@ Parameters:
     # CentOS 7 AMI for us-west-2
     # You may have to accept the terms in the marketplace before deploying
     Default: ami-a042f4d8
+  AdminCIDR:
+    Description: CIDR block that can SSH into servers
+    Type: String
+    Default: '0.0.0.0/0'
 Resources:
   DatabaseSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -44,7 +48,7 @@ Resources:
       - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
-        CidrIp: 0.0.0.0/0
+        CidrIp: !Ref AdminCIDR
       Tags:
       - Key: Name
         Value: !Join ['-', ['database', !Ref "AWS::StackName"]]
@@ -99,7 +103,7 @@ Resources:
       - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
-        CidrIp: 0.0.0.0/0
+        CidrIp: !Ref AdminCIDR
       Tags:
       - Key: Name
         Value: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
