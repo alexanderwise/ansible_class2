@@ -19,17 +19,17 @@ Executing the playbook:
 $ ansible-playbook -i inventory -k -u student authorized_keys.yml
 SSH password:
 
-PLAY [all] ***********************************************************************************
+PLAY [all] ********************************************************************
 
-TASK [Gathering Facts] ***********************************************************************
+TASK [Gathering Facts] ********************************************************
 ok: [www-green.shoup.fun]
 ok: [db-green.shoup.fun]
 
-TASK [Authorize my SSH key] ******************************************************************
+TASK [Authorize my SSH key] ***************************************************
 changed: [www-green.shoup.fun]
 changed: [db-green.shoup.fun]
 
-PLAY RECAP ***********************************************************************************
+PLAY RECAP ********************************************************************
 db-green.shoup.fun         : ok=2    changed=1    unreachable=0    failed=0   
 www-green.shoup.fun        : ok=2    changed=1    unreachable=0    failed=0   
 ```
