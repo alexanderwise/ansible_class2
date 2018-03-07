@@ -1,4 +1,4 @@
-# Intro to Ansible
+# About this class
 
 ## What is Ansible?
 
@@ -18,6 +18,8 @@ web server.
 
 We will do all of this via Ansible, and only SSH directly to the box if we need
 to troubleshoot things.
+
+# About Ansible
 
 ## Control nodes
 
