@@ -47,3 +47,7 @@ i.e., you might have this in your playbook:
 ```
 key: https://gitlab.com/shouptech.keys
 ```
+
+---
+
+[Back to the lesson](03_your_first_playbook.md)

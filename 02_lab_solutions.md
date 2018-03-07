@@ -28,3 +28,7 @@ Your copy command should look like this:
 echo 'ansible is awesome' > /tmp/foobar
 ansible -i inventory -m copy -a 'src=/tmp/foobar dest=/opt/foobar' -k -b -u student www-green.shoup.fun
 ```
+
+---
+
+[Back to lesson](02_ad-hoc_commands.md)
