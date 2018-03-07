@@ -101,7 +101,7 @@ your inventory.
 Notes:
 * You will need to provide the `student` username on the command line:
 `-u student`
-* You will also need to instruct ansible to ask for your SSH password.
+* You will also need to instruct ansible to ask for your SSH password (`-k`).
 
 ## Copy
 
@@ -109,6 +109,7 @@ Create a text file on your computer containing whatever you want, and copy it
 to `/opt` on your webserver.
 
 Notes:
+* You will need to instruct ansible to run commands with sudo (`-b`)
 * See the [copy module](http://docs.ansible.com/ansible/latest/copy_module.html)
 
 ## Solutions

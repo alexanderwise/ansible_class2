@@ -25,5 +25,6 @@ ansible -i inventory -m setup -k -u student all
 Your copy command should look like this:
 
 ```bash
-ansible -i inventory -m copy -a 'src=/tmp/foobar dest=/opt/foobar' -k -u student www-green.shoup.fun
+echo 'ansible is awesome' > /tmp/foobar
+ansible -i inventory -m copy -a 'src=/tmp/foobar dest=/opt/foobar' -k -b -u student www-green.shoup.fun
 ```
