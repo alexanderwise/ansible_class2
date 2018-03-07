@@ -93,6 +93,7 @@ apt update && apt install sshpass
 ## SSH into the servers
 
 Let's assign servers to the students, and make sure you can SSH into the server
-with the provided username and password
+with the provided username and password. This also accomplishes adding the host
+key to your `known_hosts` file and prevents errors from occurring.
 
 [Move on to Ad-Hoc commands](02_ad-hoc_commands.md)
