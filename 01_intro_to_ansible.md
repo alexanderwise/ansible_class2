@@ -1,5 +1,13 @@
 # Intro to Ansible
 
+## What is Ansible?
+
+> Ansible is a radically simple IT automation engine that automates cloud
+> provisioning, configuration management, application deployment, intra-service
+> orchestration, and many other IT needs.
+
+Source: https://www.ansible.com/overview/how-ansible-works
+
 ## Control nodes
 
 The control node is a workstation that you execute and run Ansible playbooks
