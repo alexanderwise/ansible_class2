@@ -115,3 +115,7 @@ Notes:
 ## Solutions
 
 [See here for solutions](02_lab_solutions.md)
+
+---
+
+[Move on to Your First Playbook](03_your_first_playbook.md)
