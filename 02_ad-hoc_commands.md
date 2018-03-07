@@ -49,7 +49,7 @@ to ping a group of servers:
 ```bash
 ansible -i inventory -m ping all
 #  |         |           |    |
-#  |         |           |    + - all hosts
+#  |         |           |    +- all hosts
 #  |         |           +- execute the `ping` module
 #  |         +- path to your inventory file
 #  +- ansible command
@@ -59,7 +59,11 @@ Download pride and prejudice to a group of servers using the
 [get_url](http://docs.ansible.com/ansible/latest/get_url_module.html) module:
 
 ```bash
-ansible -i inventory -m get_url -a 'url=http://www.gutenberg.org/files/1342/1342-0.txt dest=/tmp/pride.txt' server01
+#                     +- Ask for SSH password
+#                     |     +- get_url module
+#                     |     |             +- Arguments for the get_url module                  server to act on -+
+#                     |     |             |                                                                      |
+ansible -i inventory -k -m get_url -a 'url=http://www.gutenberg.org/files/1342/1342-0.txt dest=/tmp/pride.txt' server01
 server01 | SUCCESS => {
     "changed": true,
     "checksum_dest": null,
