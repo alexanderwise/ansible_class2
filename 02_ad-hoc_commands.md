@@ -83,3 +83,34 @@ server01 | SUCCESS => {
     "url": "http://www.gutenberg.org/files/1342/1342-0.txt"
 }
 ```
+
+# Lab
+
+## Inventory
+
+Create an inventory file containing the two servers I've provisioned for you.
+
+The `db` server should be in a group called `databases` and the `www` server
+should be in a group called `webservers`.
+
+## Ping
+
+Using the `ansible` command, execute the `setup` module against `all` hosts in
+your inventory.
+
+Notes:
+* You will need to provide the `student` username on the command line:
+`-u student`
+* You will also need to instruct ansible to ask for your SSH password.
+
+## Copy
+
+Create a text file on your computer containing whatever you want, and copy it
+to `/opt` on your webserver.
+
+Notes:
+* See the [copy module](http://docs.ansible.com/ansible/latest/copy_module.html)
+
+## Solutions
+
+[See here for solutions](02_lab_solutions.md)
