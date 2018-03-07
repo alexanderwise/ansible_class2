@@ -2,7 +2,8 @@ Your `authorized_keys.yml` file might look like this:
 
 ```yaml
 ---
-- hosts: all
+- name: Authorize me
+  hosts: all
   vars:
     my_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiBRqjCEnUWYw9X804RKFVhO0W/gFlVheVJILFQ00tDsSN7YxmCz7M3JIApV0B4qccf+QngrpTo2l8nS+p4uCvYWICBq0Ppg3gAIXXi6x5Q7NETVa5rMddVJuNX1H+qxujLifdwpkTkjD2aHkkzVfrWF3wbSxeR1Wf4F8gh0k9MdZoqwR9w1JIKKh0src8EQI5NGFxYU2YS4ZjcP4w3EeLKMyDYgBjCJL1WbXNSfUKH31w4l0XsDOhzpT0mPpikk2nEm+Vg8tN1I+oZdbPqUgPDeg0q8iJ4fKVVbFgVFwJ6wc2i0olJN9XsFjVABNXclB6OL+SFt7yPOCMyjqRZDFJ mike@lappy.home.shoup.io
   tasks:

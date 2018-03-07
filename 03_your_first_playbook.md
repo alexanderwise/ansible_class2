@@ -9,7 +9,8 @@ repeatedly:
 
 ```yaml
 ---
-- hosts: server01 # This is either a group or specific host to execute tasks on
+- name: Sample playbook # Optional name for your playbook
+  hosts: server01 # This is either a group or specific host to execute tasks on
   vars: # This is variables that will be definited for this specific 'play'
     book_url: http://www.gutenberg.org/files/1342/1342-0.txt
   tasks:
