@@ -75,4 +75,19 @@ ansible 2.4.3.0
   python version = 2.7.14 (default, Sep 23 2017, 22:06:14) [GCC 7.2.0]
 ```
 
+## sshpass
+
+The `sshpass` program isn't normally required if SSH keys have been setup.
+Since I didn't have your SSH keys, I didn't set them up on your servers. We'll
+do that later. For now, install the `sshpass` program (if not already installed)
+so we can do the next lab:
+
+```bash
+yum install sshpass
+
+# or
+
+apt update && apt install sshpass
+```
+
 [Move on to Ad-Hoc commands](02_ad-hoc_commands.md)
