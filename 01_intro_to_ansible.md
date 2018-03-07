@@ -19,6 +19,10 @@ web server.
 We will do all of this via Ansible, and only SSH directly to the box if we need
 to troubleshoot things.
 
+Do you want to build these on your own? This class includes a CloudFormation
+template that you can use in your own AWS account. See the `cloudformation`
+folder in this repo.
+
 # About Ansible
 
 ## Control nodes
