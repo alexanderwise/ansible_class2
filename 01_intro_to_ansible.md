@@ -8,6 +8,17 @@
 
 Source: https://www.ansible.com/overview/how-ansible-works
 
+## What will we accomplish today?
+
+I've already built you two servers, a database server, and a web server.
+
+Your mission, by the end of the class, will be to have MariaDB installed and
+configured on your database server, and Wordpress installed and running on your
+web server.
+
+We will do all of this via Ansible, and only SSH directly to the box if we need
+to troubleshoot things.
+
 ## Control nodes
 
 The control node is a workstation that you execute and run Ansible playbooks
