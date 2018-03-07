@@ -18,3 +18,29 @@ repeatedly:
         url: "{{ book_url }}" # Ansible uses Jinja2 templating when running playbooks
         dest: /opt/pride.txt
 ```
+
+You would execute a playbook with the `ansible-playbook` command. An example
+might look like this:
+
+```bash
+ansible-playbook -i inventory -u remote_user -k playbook.yml
+```
+
+# Lab
+
+## SSH Keys
+
+Write a small playbook named `authorized_keys.yml` that copies adds your public
+SSH key to the student user's authorized_keys file on `all` of the servers in
+your inventory.
+
+Note: The
+[authorized_key](http://docs.ansible.com/ansible/latest/authorized_key_module.html)
+module will be very helpful for this.
+
+Execute the playbook and try to SSH into the servers as the user student with
+only your SSH key.
+
+## Solution
+
+[See here for solutions](03_lab_solutions.md)
