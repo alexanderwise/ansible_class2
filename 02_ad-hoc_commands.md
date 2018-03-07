@@ -93,7 +93,7 @@ Create an inventory file containing the two servers I've provisioned for you.
 The `db` server should be in a group called `databases` and the `www` server
 should be in a group called `webservers`.
 
-## Ping
+## Setup
 
 Using the `ansible` command, execute the `setup` module against `all` hosts in
 your inventory.

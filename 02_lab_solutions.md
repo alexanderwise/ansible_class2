@@ -12,12 +12,12 @@ db-green.shoup.fun
 www-green.shoup.fun
 ```
 
-## Ping
+## Setup
 
-Your ping command should look like this:
+Your setup command should look like this:
 
 ```bash
-ansible -i inventory -m ping -k -u student all
+ansible -i inventory -m setup -k -u student all
 ```
 
 ## Copy
