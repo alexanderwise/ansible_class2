@@ -31,9 +31,9 @@ ansible-playbook -i inventory -u remote_user -k playbook.yml
 
 ## SSH Keys
 
-Write a small playbook named `authorized_keys.yml` that copies adds your public
-SSH key to the student user's authorized_keys file on `all` of the servers in
-your inventory.
+Write a small playbook named `authorized_keys.yml` that adds your public SSH key
+to the student user's authorized_keys file on `all` of the servers in your
+inventory.
 
 Note: The
 [authorized_key](http://docs.ansible.com/ansible/latest/authorized_key_module.html)
