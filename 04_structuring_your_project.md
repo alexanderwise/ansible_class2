@@ -32,3 +32,17 @@ sample layout, and how I typically layout a project:
 ├── site.yml # A playbook for your entire site
 └── .vault_pass # A file containing your vault password, should *not* be committed
 ```
+
+## Lab
+
+If you haven't already, clone the class repo, and do the following:
+
+Copy your inventory and authorized_keys.yml file into the project folder
+
+Set some defaults in ansible.cfg:
+  * Set the default remote user to `student`
+  * Make `become` default to `True`.
+
+Execute the authorized_keys playbook, this time, specifying only the inventory
+file and playbook. You should not need to instruct the `ansible-playbook`
+command to ask for a password, or to specify the remote user.
