@@ -39,7 +39,7 @@ Note: The
 [authorized_key](http://docs.ansible.com/ansible/latest/authorized_key_module.html)
 module will be very helpful for this.
 
-Execute the playbook and try to SSH into the servers as the user student with
+Execute the playbook and try to SSH into the servers as the student user with
 only your SSH key.
 
 ## Solution
