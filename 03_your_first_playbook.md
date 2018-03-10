@@ -45,3 +45,7 @@ only your SSH key.
 ## Solution
 
 [See here for solutions](03_lab_solutions.md)
+
+---
+
+[Move on to Structuring your Project](04_structuring_your_project.md)
