@@ -13,8 +13,8 @@ sample layout, and how I typically layout a project:
 │   └── db-green.shoup.fun
 │       └── databases.yml # Variables for a specific host
 ├── roles
-│   └── wordpress # A role to install wordpress
-|       |         # All the folders, except probably 'tasks' are optional
+│   └── webapp # A role to install webapp
+|       |      # All the folders, except probably 'tasks' are optional
 │       ├── defaults
 │       │   └── main.yml # Default variables for this role (lowest precedence)
 │       ├── handlers
@@ -46,3 +46,7 @@ Set some defaults in ansible.cfg:
 Execute the authorized_keys playbook, this time, specifying only the inventory
 file and playbook. You should not need to instruct the `ansible-playbook`
 command to ask for a password, or to specify the remote user.
+
+---
+
+[Move on to Your First Role](05_your_first_role.md)

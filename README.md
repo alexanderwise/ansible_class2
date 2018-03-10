@@ -7,6 +7,8 @@ Teacher: Mike Shoup <mike@shouptech.com>
 1. [Intro to Ansible](01_intro_to_ansible.md)
 2. [Ad-Hoc Commands](02_ad-hoc_commands.md)
 3. [Your First Playbook](03_your_first_playbook.md)
+4. [Structuring Your Project](04_structuring_your_project.md)
+5. [Your First Role](05_your_first_role.md)
 
 # License
 
