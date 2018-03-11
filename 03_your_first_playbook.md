@@ -8,7 +8,7 @@ We can easily define this behavior in a playbook, so that it can be executed
 repeatedly:
 
 ```yaml
----
+
 - name: Sample playbook # Optional name for your playbook
   hosts: server01 # This is either a group or specific host to execute tasks on
   vars: # This is variables that will be definited for this specific 'play'

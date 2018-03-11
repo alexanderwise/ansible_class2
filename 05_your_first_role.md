@@ -27,7 +27,7 @@ Next, we have to define the task.
 `roles/pride_and_prejudice/tasks/main.yml`:
 
 ```yaml
----
+
 - name: Download pride and prejudice # Optional name of task to be executed
   fetch_url: # Name of Ansible module to execute
     url: "{{ book_url }}" # Ansible uses Jinja2 templating when running playbooks
@@ -38,7 +38,7 @@ Finally, in our playbook we remove the `vars` and `tasks` sections, and simply
 reference the role:
 
 ```yaml
----
+
 - name: Sample playbook # Optional name for your playbook
   hosts: server01 # This is either a group or specific host to execute tasks on
   roles: # Roles executed in this play

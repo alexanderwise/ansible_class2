@@ -1,7 +1,7 @@
 Your `authorized_keys.yml` file might look like this:
 
 ```yaml
----
+
 - name: Authorize me
   hosts: all
   vars:
