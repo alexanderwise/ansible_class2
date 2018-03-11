@@ -110,3 +110,7 @@ the following:
 Once finished, you should be able to open your browser, and point it to
 `http://www-<server>.shoup.fun/` and see the webapp load. There *will* be an
 error because we haven't configured a database. We'll get there.
+
+## Solutions
+
+[See here for solutions](05_lab_solutions.md)
