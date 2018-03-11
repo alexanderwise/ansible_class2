@@ -106,6 +106,9 @@ the following:
    also need to create a handler that restarts the `httpd` service.
 4. Use the `copy` module to copy `files/index.php` to the remote server's
    `/var/www/html` directory.
+5. Create a playbook called `webservers.yml` and have it run the `webapp` role
+   on the group `webservers`.
+6. Execute the playbook!
 
 Once finished, you should be able to open your browser, and point it to
 `http://www-<server>.shoup.fun/` and see the webapp load. There *will* be an

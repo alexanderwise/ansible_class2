@@ -47,6 +47,10 @@ Execute the authorized_keys playbook, this time, specifying only the inventory
 file and playbook. You should not need to instruct the `ansible-playbook`
 command to ask for a password, or to specify the remote user.
 
+## Solutions
+
+[See here for solutions](04_lab_solutions.md)
+
 ---
 
 [Move on to Your First Role](05_your_first_role.md)
