@@ -45,6 +45,55 @@ reference the role:
     - pride_and_prejudice # The name of our role
 ```
 
+## Handlers
+
+We haven't covered handlers yet, but they're super important. Suppose you have
+a couple tasks that looks like this:
+
+```yaml
+tasks:
+  - name: Replace sshd_config
+    copy:
+      src: files/sshd_config
+      dest: /etc/ssh/sshd_config
+  - name: Restart sshd
+    service:
+      name: sshd
+      state: restarted
+```
+
+When you run the playbook, Ansible would replace the remote server's
+`sshd_config` file if, and only if, the remote server's `sshd_config` is
+different than the local copy. That's great! Why do work we don't have to?
+Except, it would also ensure `sshd` was restarted every time the playbook was
+executed. We don't want that, as we only want the service restarted if the
+config file was changed.
+
+This can be solved by using `notify` to instruct Ansible to run a `handler`. A
+handler is nothing more than a task that only gets run if it's notified to do
+so.
+
+We can solve the above problem like this:
+
+```yaml
+tasks:
+  - name: Replace sshd_config
+    copy:
+      src: files/sshd_config
+      dest: /etc/ssh/sshd_config
+    notify: Restart sshd
+handlers:
+  - name: Restart sshd
+    service:
+      name: sshd
+      state: restarted
+```
+
+Now, Ansible will restart the sshd service if, and only if, the `sshd_config`
+file has changed.
+
+Keep in mind with roles, we split the tasks and handlers into their own folders.
+
 ## Lab
 
 In the project folder, I've already created part of a role for you called
