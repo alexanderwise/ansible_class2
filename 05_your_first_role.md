@@ -12,7 +12,7 @@ for other folders you might want in your role.
 Remember our task to download Pride and Prejudice? You could make this into a
 reusable role.
 
-First, we can create a file deifning our variable, `book_url`. We will put this
+First, we can create a file defining our variable, `book_url`. We will put this
 in the `defaults` folder, allowing consumers of our role to easily override this
 variable if needed.
 
@@ -44,3 +44,20 @@ reference the role:
   roles: # Roles executed in this play
     - pride_and_prejudice # The name of our role
 ```
+
+## Lab
+
+In the project folder, I've already created part of a role for you called
+`webapp`. This role currently has no tasks. You need to update the role to do
+the following:
+
+1. Use the `yum` module to install the `httpd` package
+2. Use the `service` module to start the httpd service and enable it at startup
+3. Use the `yum` module to install the `php` & `php-mysql` packages. You will
+   also need to create a handler that restarts the `httpd` service.
+4. Use the `copy` module to copy `files/index.php` to the remote server's
+   `/var/www/html` directory.
+
+Once finished, you should be able to open your browser, and point it to
+`http://www-<server>.shoup.fun/` and see the webapp load. There *will* be an
+error because we haven't configured a database. We'll get there.
