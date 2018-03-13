@@ -35,7 +35,7 @@
     state: restarted
 ```
 
-`webservers.yml`:
+`webapp.yml`:
 
 ```yaml
 - name: Webservers

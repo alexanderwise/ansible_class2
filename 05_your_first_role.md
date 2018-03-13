@@ -106,7 +106,7 @@ the following:
    also need to create a handler that restarts the `httpd` service.
 4. Use the `copy` module to copy `files/index.php` to the remote server's
    `/var/www/html` directory.
-5. Create a playbook called `webservers.yml` and have it run the `webapp` role
+5. Create a playbook called `webapp.yml` and have it run the `webapp` role
    on the group `webservers`.
 6. Execute the playbook!
 
