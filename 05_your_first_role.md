@@ -117,3 +117,7 @@ error because we haven't configured a database. We'll get there.
 ## Solutions
 
 [See here for solutions](05_lab_solutions.md)
+
+---
+
+[Move on to Ansible Galaxy](06_ansible_galaxy.md)

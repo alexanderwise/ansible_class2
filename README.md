@@ -9,6 +9,7 @@ Teacher: Mike Shoup <mike@shouptech.com>
 3. [Your First Playbook](03_your_first_playbook.md)
 4. [Structuring Your Project](04_structuring_your_project.md)
 5. [Your First Role](05_your_first_role.md)
+6. [Ansible Galaxy](06_ansible_galaxy.md)
 
 # License
 

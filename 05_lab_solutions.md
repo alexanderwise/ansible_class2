@@ -1,7 +1,6 @@
 `roles/webapp/tasks/main.yml`:
 
 ```yaml
----
 # tasks file for webapp
 - name: Install httpd
   yum:
@@ -29,7 +28,6 @@
 `roles/webapp/handlers/main.yml`:
 
 ```yaml
----
 # handlers file for webapp
 - name: Restart httpd
   service:
@@ -40,13 +38,12 @@
 `webservers.yml`:
 
 ```yaml
----
 - name: Webservers
   hosts: webservers
   roles:
     - webapp
 ```
 
----
+
 
 [Back to the lesson](05_your_first_role.md)
