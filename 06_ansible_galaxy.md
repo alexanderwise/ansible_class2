@@ -36,3 +36,24 @@ In your playbook, you'll then reference the name of the Galaxy:
   roles:
     - shouptech.nextcloud
 ```
+
+## Lab
+
+Let's install the awesome
+[`bertvv.mariadb` role](https://galaxy.ansible.com/bertvv/mariadb/) on our
+database servers.
+
+1. Create a `galaxy-requirements.yml` file containing the role and use the
+  `ansible-galaxy` command to isntall the role.
+2. Using the [documentation for the role](https://galaxy.ansible.com/bertvv/mariadb/),
+  configure the following. Define the variables in a file
+  `group_vars/databases/mariadb.yml`.
+  * Set the bind address to `0.0.0.0`
+  * Configure a database named `webapp`
+  * Set the root password to something secure. (Forget the fact it's plaintext.
+    We'll fix that in the next lab.)
+  * Add a user named `webapp`, host `%` and  with the privileges `webapp.*:ALL`.
+    Set a secure password, and like the root password, we'll encrypt it in the
+    next lab.
+3. Using the `webapp.yml` playbook created in the previous lab, install the role
+  on the host group `databases`. Execute the playbook.
