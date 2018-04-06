@@ -57,3 +57,7 @@ database servers.
     next lab.
 3. Using the `webapp.yml` playbook created in the previous lab, install the role
   on the host group `databases`. Execute the playbook.
+
+  ## Solutions
+
+  [See here for solutions](06_lab_solutions.md)
