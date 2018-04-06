@@ -77,10 +77,6 @@ Resources:
           sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
           systemctl restart sshd
           echo 'student ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/student
-  DatabaseEIP:
-    Type: AWS::EC2::EIP
-    Properties:
-      InstanceId: !Ref DatabaseInstance
   DatabaseDNS:
     Type: AWS::Route53::RecordSet
     Properties:
@@ -89,7 +85,7 @@ Resources:
       Type: A
       TTL: 60
       ResourceRecords:
-      - !Ref DatabaseEIP
+      - !GetAtt DatabaseInstance.PublicIp
   WebappSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -132,10 +128,6 @@ Resources:
           sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
           systemctl restart sshd
           echo 'student ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/student
-  WebappEIP:
-    Type: AWS::EC2::EIP
-    Properties:
-      InstanceId: !Ref WebappInstance
   WebappDNS:
     Type: AWS::Route53::RecordSet
     Properties:
@@ -144,4 +136,4 @@ Resources:
       Type: A
       TTL: 60
       ResourceRecords:
-      - !Ref WebappEIP
+      - !GetAtt WebappInstance.PublicIp
