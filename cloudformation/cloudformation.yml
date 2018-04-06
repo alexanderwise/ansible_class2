@@ -39,12 +39,12 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: !Join ['-', ['database', !Ref "AWS::StackName"]]
-      GroupDescription: Allow inbound ssh and 3306/tcp from wordpress
+      GroupDescription: Allow inbound ssh and 3306/tcp from Webapp
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 3306
         ToPort: 3306
-        SourceSecurityGroupName: !Ref WordpressSecurityGroup
+        SourceSecurityGroupName: !Ref WebappSecurityGroup
       - IpProtocol: tcp
         FromPort: 22
         ToPort: 22
@@ -90,11 +90,11 @@ Resources:
       TTL: 60
       ResourceRecords:
       - !Ref DatabaseEIP
-  WordpressSecurityGroup:
+  WebappSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
-      GroupDescription: Allow inbound http & ssh for wordpress
+      GroupName: !Join ['-', ['Webapp', !Ref "AWS::StackName"]]
+      GroupDescription: Allow inbound http & ssh for Webapp
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 80
@@ -106,8 +106,8 @@ Resources:
         CidrIp: !Ref AdminCIDR
       Tags:
       - Key: Name
-        Value: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
-  WordpressInstance:
+        Value: !Join ['-', ['Webapp', !Ref "AWS::StackName"]]
+  WebappInstance:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
@@ -120,10 +120,10 @@ Resources:
           DeleteOnTermination: True
           VolumeSize: 8
       SecurityGroupIds:
-      - !Ref WordpressSecurityGroup
+      - !Ref WebappSecurityGroup
       Tags:
       - Key: Name
-        Value: !Join ['-', ['wordpress', !Ref "AWS::StackName"]]
+        Value: !Join ['-', ['Webapp', !Ref "AWS::StackName"]]
       UserData: !Base64
         Fn::Sub: |-
           #!/bin/bash -x
@@ -132,11 +132,11 @@ Resources:
           sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
           systemctl restart sshd
           echo 'student ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/student
-  WordpressEIP:
+  WebappEIP:
     Type: AWS::EC2::EIP
     Properties:
-      InstanceId: !Ref WordpressInstance
-  WordpressDNS:
+      InstanceId: !Ref WebappInstance
+  WebappDNS:
     Type: AWS::Route53::RecordSet
     Properties:
       HostedZoneName: !Ref DomainName
@@ -144,4 +144,4 @@ Resources:
       Type: A
       TTL: 60
       ResourceRecords:
-      - !Ref WordpressEIP
+      - !Ref WebappEIP
