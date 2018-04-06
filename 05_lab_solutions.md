@@ -44,6 +44,9 @@
     - webapp
 ```
 
-
+Execute playbook:
+``` bash
+ansible-playbook -i inventory webservers.yml
+```
 
 [Back to the lesson](05_your_first_role.md)
