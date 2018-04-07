@@ -67,6 +67,6 @@ database servers.
 6. Run the `webapp.yml` playbook. Point your browser to your webserver and see
   if everything works.
 
-  ## Solutions
+## Solutions
 
-  [See here for solutions](06_lab_solutions.md)
+[See here for solutions](06_lab_solutions.md)
