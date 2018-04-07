@@ -46,7 +46,7 @@
 
 Execute playbook:
 ``` bash
-ansible-playbook -i inventory webservers.yml
+ansible-playbook -i inventory webapp.yml
 ```
 ---
 
