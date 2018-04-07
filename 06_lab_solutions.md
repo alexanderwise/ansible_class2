@@ -52,7 +52,7 @@ www-clementine.shoup.fun   : ok=5    changed=0    unreachable=0    failed=0
 webapp_dbname: webapp
 webapp_dbuser: webapp
 webapp_dbpass: securepassword
-webapp_dbhost: db-clementine.shoup.fun
+webapp_dbhost: db-priv-clementine.shoup.fun
 ```
 
 `roles/webapp/tasks/main.yml`:
