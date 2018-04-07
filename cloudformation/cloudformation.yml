@@ -86,6 +86,15 @@ Resources:
       TTL: 60
       ResourceRecords:
       - !GetAtt DatabaseInstance.PublicIp
+  DatabasePrivDNS:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: !Ref DomainName
+      Name: !Join ['', ['db-priv-', !Ref "AWS::StackName", '.', !Ref DomainName]]
+      Type: A
+      TTL: 60
+      ResourceRecords:
+      - !GetAtt DatabaseInstance.PrivateIp
   WebappSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
