@@ -11,11 +11,12 @@ repeatedly:
 
 - name: Sample playbook # Optional name for your playbook
   hosts: server01 # This is either a group or specific host to execute tasks on
+  become: true # This elevates permissions to root after the connection is established
   vars: # This is variables that will be definited for this specific 'play'
     book_url: http://www.gutenberg.org/files/1342/1342-0.txt
   tasks:
     - name: Download pride and prejudice # Optional name of task to be executed
-      fetch_url: # Name of Ansible module to execute
+      get_url: # Name of Ansible module to execute
         url: "{{ book_url }}" # Ansible uses Jinja2 templating when running playbooks
         dest: /opt/pride.txt
 ```
