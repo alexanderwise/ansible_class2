@@ -32,8 +32,6 @@ mariadb_users:
     - bertvv.mariadb
 ```
 
-Commands:
-
 ```bash
 $ ansible-galaxy install -r galaxy-requirements.yml
 - downloading role 'mariadb', owned by bertvv
@@ -42,18 +40,34 @@ $ ansible-galaxy install -r galaxy-requirements.yml
 - bertvv.mariadb (v2.0.2) was installed successfully
 $ ansible-playbook -i inventory webapp.yml
 [...]
-____________
-< PLAY RECAP >
-------------
-       \   ^__^
-        \  (oo)\_______
-           (__)\       )\/\
-               ||----w |
-               ||     ||
 
 db-clementine.shoup.fun    : ok=18   changed=3    unreachable=0    failed=0   
 www-clementine.shoup.fun   : ok=5    changed=0    unreachable=0    failed=0   
 ```
 ---
+
+`group_vars/webservers/config.yml`:
+
+```yaml
+webapp_dbname: webapp
+webapp_dbuser: webapp
+webapp_dbpass: securepassword
+webapp_dbhost: db-clementine.shoup.fun
+```
+
+`roles/webapp/tasks/main.yml`:
+
+```yaml
+[...]
+
+- name: copy config file
+  template:
+    src: templates/config.php.j2
+    dest: /var/www/html/config.php
+```
+
+```bash
+$ ansible-galaxy install -r galaxy-requirements.yml
+```
 
 [Back to the lesson](06_ansible_galaxy.md)
