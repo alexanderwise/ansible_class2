@@ -55,5 +55,18 @@ database servers.
   * Add a user named `webapp`, host `%` and  with the privileges `webapp.*:ALL`.
     Set a secure password, and like the root password, we'll encrypt it in the
     next lab.
-3. Using the `webapp.yml` playbook created in the previous lab, install the role
-  on the host group `databases`. Execute the playbook.
+3. Update `webapp.yml` to install the `bertvv.mariadb` role on any server in
+  the `databases` group.
+4. Now's a good time to run the `webapp.yml` playbook to make sure the role is
+  installing correctly.
+5. Use the
+  [template module](http://docs.ansible.com/ansible/latest/modules/template_module.html)
+  to copy the `templates/config.php.j2` file to `/var/www/html/config.php` as
+  part of the `webapp` role. You will need to define the variables for the
+  `webservers` group.
+6. Run the `webapp.yml` playbook. Point your browser to your webserver and see
+  if everything works.
+
+  ## Solutions
+
+  [See here for solutions](06_lab_solutions.md)
