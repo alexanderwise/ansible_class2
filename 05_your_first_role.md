@@ -29,7 +29,7 @@ Next, we have to define the task.
 ```yaml
 
 - name: Download pride and prejudice # Optional name of task to be executed
-  fetch_url: # Name of Ansible module to execute
+  get_url: # Name of Ansible module to execute
     url: "{{ book_url }}" # Ansible uses Jinja2 templating when running playbooks
     dest: /opt/pride.txt
 ```
