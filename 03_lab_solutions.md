@@ -23,16 +23,16 @@ SSH password:
 PLAY [all] ********************************************************************
 
 TASK [Gathering Facts] ********************************************************
-ok: [www-green.shoup.fun]
-ok: [db-green.shoup.fun]
+ok: [www-apple.house-of-py.com]
+ok: [db-apple.house-of-py.com]
 
 TASK [Authorize my SSH key] ***************************************************
-changed: [www-green.shoup.fun]
-changed: [db-green.shoup.fun]
+changed: [www-apple.house-of-py.com]
+changed: [db-apple.house-of-py.com]
 
 PLAY RECAP ********************************************************************
-db-green.shoup.fun         : ok=2    changed=1    unreachable=0    failed=0   
-www-green.shoup.fun        : ok=2    changed=1    unreachable=0    failed=0   
+db-apple.house-of-py.com         : ok=2    changed=1    unreachable=0    failed=0   
+www-apple.house-of-py.com        : ok=2    changed=1    unreachable=0    failed=0   
 ```
 
 ## Fun fact!

@@ -6,10 +6,10 @@ Your inventory file should look like this:
 
 ```
 [databases]
-db-green.shoup.fun
+db-apple.house-of-py.com
 
 [webservers]
-www-green.shoup.fun
+www-apple.house-of-py.com
 ```
 
 ## Setup
@@ -26,7 +26,7 @@ Your copy command should look like this:
 
 ```bash
 echo 'ansible is awesome' > /tmp/foobar
-ansible -i inventory -m copy -a 'src=/tmp/foobar dest=/opt/foobar' -k -b -u student www-green.shoup.fun
+ansible -i inventory -m copy -a 'src=/tmp/foobar dest=/opt/foobar' -k -b -u student www-apple.house-of-py.com
 ```
 
 ---

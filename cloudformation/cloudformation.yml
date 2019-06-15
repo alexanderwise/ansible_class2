@@ -29,7 +29,7 @@ Parameters:
     Type: AWS::EC2::Image::Id
     # CentOS 7 AMI for us-west-2
     # You may have to accept the terms in the marketplace before deploying
-    Default: ami-a042f4d8
+    Default: ami-01ed306a12b7d1c96
   AdminCIDR:
     Description: CIDR block that can SSH into servers
     Type: String
@@ -55,7 +55,7 @@ Resources:
   DatabaseInstance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       ImageId: !Ref CentOSAMI
       KeyName: !Ref KeyName
       BlockDeviceMappings:
@@ -117,7 +117,7 @@ Resources:
   WebappInstance:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       ImageId: !Ref CentOSAMI
       KeyName: !Ref KeyName
       BlockDeviceMappings:

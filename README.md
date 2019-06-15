@@ -1,6 +1,6 @@
 # Intro to Ansible
 
-Teacher: Mike Shoup <mike@shouptech.com>
+Teacher: ~Mike Shoup <mike@shouptech.com>~ Alex Wise <contact@alexwise.guru>
 
 ## Lessons
 

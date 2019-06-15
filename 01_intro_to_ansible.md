@@ -88,6 +88,10 @@ yum install sshpass
 # or
 
 apt update && apt install sshpass
+
+# or
+
+brew install http://git.io/sshpass.rb
 ```
 
 ## SSH into the servers
